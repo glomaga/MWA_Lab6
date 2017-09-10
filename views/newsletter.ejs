@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NEWSLETTER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div class="container">
+    <form name="form1" method="POST" action="newsletter">
+    <table class="table table-bordered">
+        <tr>
+        <td>Email</td>
+        <td><input type="text" name="femail" ></td>
+        </tr>
+        <tr>
+        <td colspan="2"><input type="submit" value="Save" ></td>
+        </tr>
+    </table>
+    <input type="hidden" name="_csrf" value="<%= csrf %>"/>
+    </form>   
+    <% if (errors !== undefined){ %>
+      <p>there are errors on page:</p>
+      <% for (const error of errors){ %>
+        <li><%= error.msg %> </li>
+      <% } } %>
+    </div>
+</body>
+
+</html>
